@@ -10,6 +10,8 @@
     <meta name="author" content="">
     <meta name="keywords" content="">
     <meta name="description" content="">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="{{ asset('storage/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('storage/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
