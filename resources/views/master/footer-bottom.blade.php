@@ -10,7 +10,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 col-sm-6">
+          {{-- <div class="col-md-4 col-sm-6">
             <div class="payment-method d-flex">
               <p>Payment options:</p>
               <div class="card-wrap ps-2">
@@ -19,7 +19,7 @@
                 <img src="{{ asset('storage/images/paypal.jpg') }}" alt="paypal">
               </div>
             </div>
-          </div>
+          </div> --}}
           <div class="col-md-4 col-sm-6">
             <div class="copyright">
               <p>© Copyright 2024 ZE-store. Design by ZE</a>

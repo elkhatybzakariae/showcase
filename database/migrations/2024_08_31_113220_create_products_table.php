@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('description');
             $table->integer('stockQuantity');
             $table->boolean('valider')->default(0);
-
+            $table->string('id_Cat')->nullable();
+            $table->foreign('id_Cat')->on('categories')->references('id_Cat');
             $table->timestamps();
         });
     }
