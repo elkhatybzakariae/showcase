@@ -40,7 +40,7 @@
                 <a class="nav-link me-4 dropdown-toggle link-dark" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Pages</a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a href="about.html" class="dropdown-item">About</a>
+                    <a href="{{ route('about') }}" class="dropdown-item">About</a>
                   </li>
                   <li>
                     <a href="blog.html" class="dropdown-item">Blog</a>

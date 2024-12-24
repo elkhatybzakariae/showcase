@@ -56,7 +56,7 @@
                     <a href="#">Home</a>
                   </li>
                   <li class="menu-item pb-2">
-                    <a href="#">About</a>
+                    <a href="">About</a>
                   </li>
                   <li class="menu-item pb-2">
                     <a href="#">Shop</a>
