@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Ville;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -19,12 +20,14 @@ class ClientFactory extends Factory
     public function definition(): array
     {
         // $villes = Ville::pluck('id_V')->toArray();
+        $villes = Ville::pluck('id_V')->toArray();
+
         return [
             'id_Cl' => Str::random(10),
             'nomcomplet' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'Phone' => fake()->phoneNumber(),
-            'ville' =>fake()->city(),
+            'ville' => $this->faker->randomElement($villes), 
             'adress' => fake()->address(),
             'password' => Hash::make('password'),
             'created_at'=>now()

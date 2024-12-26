@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => Hash::make('password'),
         ]);
+        $this->call(VilleSeeder::class);
         $this->call(ClientSeeder::class);
         $this->call(CategorieSeeder::class);
         $this->call(ProductSeeder::class);

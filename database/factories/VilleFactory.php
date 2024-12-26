@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Factories;
+use Illuminate\Support\Str;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -17,7 +18,8 @@ class VilleFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'id_V' => Str::random(10),
+            'villename' => fake()->city(),
         ];
     }
 }

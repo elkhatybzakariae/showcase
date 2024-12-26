@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('Phone')->nullable();
             $table->string('ville')->nullable();
-            // $table->foreign('ville')->on('villes')->references('id_V');
+            $table->foreign('ville')->on('villes')->references('id_V');
             $table->string('adress');
             $table->string('password');
             $table->text('token')->nullable();
