@@ -45,62 +45,62 @@ class Helpers
         }
         return $id_Cl;
     }
-    public static function generateIdLiv()
-    {
-        $id_Liv = Str::random(15);
-        while (Livreur::where('id_Liv', $id_Liv)->exists()) {
-            $id_Liv = Str::random(15);
-        }
-        return $id_Liv;
-    }
+    // public static function generateIdLiv()
+    // {
+    //     $id_Liv = Str::random(15);
+    //     while (Livreur::where('id_Liv', $id_Liv)->exists()) {
+    //         $id_Liv = Str::random(15);
+    //     }
+    //     return $id_Liv;
+    // }
 
-    public static function applyDateFilter($query, $request, $table = '')
-    {
-        if ($request->has('date_filter')) {
-            switch ($request->date_filter) {
-                case 'today':
-                    $query->whereDate($table . 'created_at', today());
-                    break;
-                case 'yesterday':
-                    $query->whereDate($table . 'created_at', today()->subDay());
-                    break;
-                case 'last_7_days':
-                    $query->whereBetween($table . 'created_at', [now()->subDays(7), now()]);
-                    break;
-                case 'last_30_days':
-                    $query->whereBetween($table . 'created_at', [now()->subDays(30), now()]);
-                    break;
-                case 'this_month':
-                    $query->whereMonth($table . 'created_at', now()->month)
-                        ->whereYear($table . 'created_at', now()->year);
-                    break;
-                case 'last_month':
-                    $query->whereMonth($table . 'created_at', now()->subMonth()->month)
-                        ->whereYear($table . 'created_at', now()->subMonth()->year);
-                    break;
-                case 'custom_range':
-                    if ($request->has('start_date') && $request->has('end_date')) {
-                        $query->whereBetween($table . 'created_at', [$request->start_date, $request->end_date]);
-                    }
-                    break;
-            }
-        }
-        return $query;
-    }
-    public static function base64Image($path = 'storage/images/l.png')
-    {
-        // Check if the file exists
-        if (!file_exists(public_path($path))) {
-            return null; // or handle the error as needed
-        }
+    // public static function applyDateFilter($query, $request, $table = '')
+    // {
+    //     if ($request->has('date_filter')) {
+    //         switch ($request->date_filter) {
+    //             case 'today':
+    //                 $query->whereDate($table . 'created_at', today());
+    //                 break;
+    //             case 'yesterday':
+    //                 $query->whereDate($table . 'created_at', today()->subDay());
+    //                 break;
+    //             case 'last_7_days':
+    //                 $query->whereBetween($table . 'created_at', [now()->subDays(7), now()]);
+    //                 break;
+    //             case 'last_30_days':
+    //                 $query->whereBetween($table . 'created_at', [now()->subDays(30), now()]);
+    //                 break;
+    //             case 'this_month':
+    //                 $query->whereMonth($table . 'created_at', now()->month)
+    //                     ->whereYear($table . 'created_at', now()->year);
+    //                 break;
+    //             case 'last_month':
+    //                 $query->whereMonth($table . 'created_at', now()->subMonth()->month)
+    //                     ->whereYear($table . 'created_at', now()->subMonth()->year);
+    //                 break;
+    //             case 'custom_range':
+    //                 if ($request->has('start_date') && $request->has('end_date')) {
+    //                     $query->whereBetween($table . 'created_at', [$request->start_date, $request->end_date]);
+    //                 }
+    //                 break;
+    //         }
+    //     }
+    //     return $query;
+    // }
+    // public static function base64Image($path = 'storage/images/l.png')
+    // {
+    //     // Check if the file exists
+    //     if (!file_exists(public_path($path))) {
+    //         return null; // or handle the error as needed
+    //     }
 
-        // Get the file type and contents
-        $type = pathinfo(public_path($path), PATHINFO_EXTENSION);
-        $data = file_get_contents(public_path($path));
+    //     // Get the file type and contents
+    //     $type = pathinfo(public_path($path), PATHINFO_EXTENSION);
+    //     $data = file_get_contents(public_path($path));
 
-        // Encode the file contents to base64
-        $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+    //     // Encode the file contents to base64
+    //     $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
 
-        return $base64;
-    }
+    //     return $base64;
+    // }
 }
