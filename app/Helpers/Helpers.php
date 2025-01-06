@@ -3,19 +3,9 @@
 namespace App\Helpers;
 
 use App\Models\Admin;
+use App\Models\Categorie;
 use App\Models\Client;
-use App\Models\Colis;
-use App\Models\DemandeModificationColi;
-use App\Models\Depense;
-use App\Models\Livreur;
-use App\Models\Message;
-use App\Models\Ramassagecoli;
-use App\Models\Reclamation;
-use App\Models\Remarque;
-use App\Models\Role;
-use App\Models\Tarif;
 use App\Models\Ville;
-use App\Models\Zone;
 use Illuminate\Support\Str;
 
 class Helpers
@@ -29,13 +19,13 @@ class Helpers
         return $id_V;
     }
 
-    public static function generateIdAd()
+    public static function generateIdCat()
     {
-        $id_Ad = Str::random(15);
-        while (Admin::where('id_Ad', $id_Ad)->exists()) {
-            $id_Ad = Str::random(15);
+        $id_Cat = Str::random(15);
+        while (Categorie::where('id_Cat', $id_Cat)->exists()) {
+            $id_Cat = Str::random(15);
         }
-        return $id_Ad;
+        return $id_Cat;
     }
     public static function generateIdCl()
     {
