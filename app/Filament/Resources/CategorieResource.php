@@ -27,13 +27,9 @@ class CategorieResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('id_Cat')
-                    ->default(Helpers::generateIdCat())
-                    ->hidden(),
                 TextInput::make('Catname')->required(),
             ]);
     }
-
     public static function table(Table $table): Table
     {
         return $table
