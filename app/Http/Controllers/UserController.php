@@ -122,7 +122,7 @@ class UserController extends Controller
 
 
         // Reset the user's password
-        Admin::where('email', $request->email)->update([
+        User::where('email', $request->email)->update([
             'password' => Hash::make($request->password)
         ]);
 
