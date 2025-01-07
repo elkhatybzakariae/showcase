@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helpers\Helpers;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,5 +18,16 @@ class Product extends Model
 
     public function categorie() {
         return $this->belongsTo(Categorie::class, 'id_Cat');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($product) {
+            if (empty($product->id_Pr)) {
+                $product->id_Pr = Helpers::generateIdPr();
+            }
+        });
     }
 }

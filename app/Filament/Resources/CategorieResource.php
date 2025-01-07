@@ -34,7 +34,7 @@ class CategorieResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('Catname')
+                TextColumn::make('Catname')->label('Name')
             ])
             ->filters([
                 //
