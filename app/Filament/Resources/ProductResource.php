@@ -8,6 +8,7 @@ use App\Models\Categorie;
 use App\Models\Product;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -32,26 +33,31 @@ class ProductResource extends Resource
     {
         return $form
             ->schema([
-                FileUpload::make('pic')->disk('public')
-                ->directory('pics'),
-                TextInput::make('proName')->label('Produckt Name')->required(),
-                TextInput::make('price')
-                    ->numeric()
-                    ->integer(),
-                TextInput::make('oldPrice')->label('Old Price')
-                    ->numeric()
-                    ->integer(),
-                Textarea::make('description')
-                    ->label('Description')
-                    ->required(),
-                TextInput::make('stockQuantity')->label('stock Quantity')
-                    ->numeric(),
-                Toggle::make('valider'),
-                Select::make('id_Cat')
-                    ->label('Categories')
-                    ->options(Categorie::all()->pluck('Catname', 'id_Cat'))
-                    ->searchable(),
-
+                Section::make()->schema([
+                    TextInput::make('proName')->label('Produckt Name')->required(),
+                    TextInput::make('price')
+                        ->numeric()
+                        ->integer(),
+                    TextInput::make('oldPrice')->label('Old Price')
+                        ->numeric()
+                        ->integer(),
+                    TextInput::make('stockQuantity')->label('stock Quantity')
+                        ->numeric(),
+                    Textarea::make('description')
+                        ->label('Description')
+                        ->columnSpanFull()
+                        ->required(),
+                    Toggle::make('valider'),
+                    Select::make('id_Cat')
+                        ->label('Categories')
+                        ->options(Categorie::all()->pluck('Catname', 'id_Cat'))
+                        ->searchable(),
+    
+                    FileUpload::make('pic')->disk('public')
+                    ->columnSpanFull()
+                    ->directory('pics'),
+                ])->columns(2),
+                
             ]);
     }
 

@@ -8,6 +8,7 @@ use App\Filament\Resources\CategorieResource\Pages;
 use App\Filament\Resources\CategorieResource\RelationManagers;
 use App\Models\Categorie;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -21,13 +22,18 @@ class CategorieResource extends Resource
 {
     protected static ?string $model = Categorie::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user';
+    protected static ?string $navigationIcon = 'heroicon-o-tag';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('Catname')->required(),
+                Section::make()->schema([
+
+                TextInput::make('Catname')
+                ->label('Category Name')
+                ->required(),
+                ]),
             ]);
     }
     public static function table(Table $table): Table
