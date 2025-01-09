@@ -2,3 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind variants;
+
+
+/* Light Mode */
+body {
+    background-color: white;
+    color: black;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}

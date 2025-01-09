@@ -53,9 +53,10 @@ class ProductResource extends Resource
                         ->options(Categorie::all()->pluck('Catname', 'id_Cat'))
                         ->searchable(),
     
-                    FileUpload::make('pic')->disk('public')
-                    ->columnSpanFull()
-                    ->directory('pics'),
+                    FileUpload::make('pic')
+                    ->disk('public')
+                    ->directory('pics')
+                    ->columnSpanFull(),
                 ])->columns(2),
                 
             ]);
@@ -65,7 +66,9 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('pic')->disk('public'),
+                ImageColumn::make('pic')
+                ->label('Image'),
+                // ImageColumn::make('pic')->disk('public'),
                 TextColumn::make('proName'),
                 TextColumn::make('price'),
                 TextColumn::make('oldPrice'),

@@ -8,3 +8,17 @@ export default {
         './vendor/filament/**/*.blade.php',
     ],
 }
+
+module.exports = {
+    darkMode: 'class', // Enables dark mode using a "class"
+    content: [
+      "./resources/**/*.blade.php",
+      "./resources/**/*.js",
+      "./resources/**/*.vue",
+    ],
+    theme: {
+      extend: {},
+    },
+    plugins: [],
+  };
+  
