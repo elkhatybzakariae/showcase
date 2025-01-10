@@ -23,6 +23,8 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
+use function PHPSTORM_META\type;
+
 class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
@@ -54,6 +56,7 @@ class ProductResource extends Resource
                         ->searchable(),
     
                     FileUpload::make('pic')
+                    ->rules(['mimes:jpeg,png,jpg,gif,svg'])
                     ->disk('public')
                     ->directory('pics')
                     ->columnSpanFull(),
@@ -66,9 +69,9 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('pic')
-                ->label('Image'),
-                // ImageColumn::make('pic')->disk('public'),
+                // ImageColumn::make('pic')
+                // ->label('Image'),
+                ImageColumn::make('pic')->disk('public'),
                 TextColumn::make('proName'),
                 TextColumn::make('price'),
                 TextColumn::make('oldPrice'),
