@@ -223,7 +223,7 @@
             <div class="container">
                 <div class="row">
                     <div class="display-header d-flex justify-content-between pb-3">
-                        <h2 class="display-7 text-dark text-uppercase">{{ $category->name }}</h2>
+                        <h2 class="display-7 text-dark text-uppercase">{{ $category->Catname }}</h2>
                         <div class="btn-right">
                             <a href="shop.html" class="btn btn-medium btn-normal text-uppercase">Go to Shop</a>
                         </div>
