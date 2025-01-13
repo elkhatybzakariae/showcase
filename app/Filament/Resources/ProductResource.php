@@ -69,23 +69,23 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
-                // ImageColumn::make('pic')
-                // ->label('Image'),
                 ImageColumn::make('pic')->disk('public'),
-                TextColumn::make('proName'),
-                TextColumn::make('price'),
-                TextColumn::make('oldPrice'),
-                TextColumn::make('description'),
-                TextColumn::make('stockQuantity'),
-                ToggleColumn::make('valider'),
-                TextColumn::make('categorie.Catname'),
+                TextColumn::make('proName')->label('Produckt')->sortable()->searchable(),
+                TextColumn::make('price')->sortable()->searchable(),
+                TextColumn::make('oldPrice')->label('Old Price')->sortable()->searchable()->toggleable(),
+                TextColumn::make('description')->label('Description')->sortable()->searchable()->toggleable(),
+                TextColumn::make('stockQuantity')->label('stock Quantity')->sortable()->searchable(),
+                ToggleColumn::make('valider')->sortable()->searchable(),
+                TextColumn::make('categorie.Catname')->sortable()->searchable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-            ])
+                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ReplicateAction::make(),
+                ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),

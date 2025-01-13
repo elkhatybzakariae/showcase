@@ -40,7 +40,7 @@ class CategorieResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('Catname')->label('Name')
+                TextColumn::make('Catname')->label('Name')->sortable()->searchable()
             ])
             ->filters([
                 //
