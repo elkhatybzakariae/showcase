@@ -6,6 +6,7 @@ use App\Helpers\Helpers;
 
 use App\Filament\Resources\CategorieResource\Pages;
 use App\Filament\Resources\CategorieResource\RelationManagers;
+use App\Filament\Resources\CategorieResource\RelationManagers\ProductRelationManager;
 use App\Models\Categorie;
 use Filament\Forms;
 use Filament\Forms\Components\Section;
@@ -59,7 +60,7 @@ class CategorieResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            ProductRelationManager::class
         ];
     }
 

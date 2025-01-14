@@ -6,6 +6,7 @@ use App\Filament\Resources\ProductResource\Pages;
 use App\Filament\Resources\ProductResource\RelationManagers;
 use App\Models\Categorie;
 use App\Models\Product;
+use Filament\Actions\CreateAction;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Section;
@@ -52,16 +53,18 @@ class ProductResource extends Resource
                     Toggle::make('valider'),
                     Select::make('id_Cat')
                         ->label('Categories')
+                        // ->relationship('categorie', 'Catname')
                         ->options(Categorie::all()->pluck('Catname', 'id_Cat'))
+                        // ->getSearchResultsUsing(fn (string $search) => \App\Models\Categorie::where('Catname', 'like', "%{$search}%")->pluck('Catname', 'id_Cat'))
                         ->searchable(),
-    
+
                     FileUpload::make('pic')
-                    ->rules(['mimes:jpeg,png,jpg,gif,svg'])
-                    ->disk('public')
-                    ->directory('pics')
-                    ->columnSpanFull(),
+                        ->rules(['mimes:jpeg,png,jpg,gif,svg'])
+                        ->disk('public')
+                        ->directory('pics')
+                        ->columnSpanFull(),
                 ])->columns(2),
-                
+
             ]);
     }
 
@@ -85,7 +88,7 @@ class ProductResource extends Resource
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
                 Tables\Actions\ReplicateAction::make(),
-                ])
+            ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),

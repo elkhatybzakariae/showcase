@@ -17,7 +17,7 @@ class Product extends Model
     ,'valider','id_Cat'];
 
     public function categorie() {
-        return $this->belongsTo(Categorie::class, 'id_Cat');
+        return $this->belongsTo(Categorie::class,'id_Cat');
     }
 
     protected static function boot()
