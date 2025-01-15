@@ -11,6 +11,8 @@ use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Tabs;
+use Filament\Forms\Components\Tabs\Tab;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -36,34 +38,66 @@ class ProductResource extends Resource
     {
         return $form
             ->schema([
-                Section::make()->schema([
-                    TextInput::make('proName')->label('Produckt Name')->required(),
-                    TextInput::make('price')
-                        ->numeric()
-                        ->integer(),
-                    TextInput::make('oldPrice')->label('Old Price')
-                        ->numeric()
-                        ->integer(),
-                    TextInput::make('stockQuantity')->label('stock Quantity')
-                        ->numeric(),
-                    Textarea::make('description')
-                        ->label('Description')
-                        ->columnSpanFull()
-                        ->required(),
-                    Toggle::make('valider'),
-                    Select::make('id_Cat')
-                        ->label('Categories')
-                        // ->relationship('categorie', 'Catname')
-                        ->options(Categorie::all()->pluck('Catname', 'id_Cat'))
-                        // ->getSearchResultsUsing(fn (string $search) => \App\Models\Categorie::where('Catname', 'like', "%{$search}%")->pluck('Catname', 'id_Cat'))
-                        ->searchable(),
+                Tabs::make('Create New Product')->tabs([
+                    Tab::make('Produckt Information')->schema([
+                        TextInput::make('proName')->label('Produckt Name')->required(),
+                        TextInput::make('price')
+                            ->numeric()
+                            ->integer(),
+                        TextInput::make('oldPrice')->label('Old Price')
+                            ->numeric()
+                            ->integer(),
+                        TextInput::make('stockQuantity')->label('stock Quantity')
+                            ->numeric(),
+                        Textarea::make('description')
+                            ->label('Description')
+                            ->columnSpanFull()
+                            ->required(),
+                    ])->columns(2),
+                    Tab::make('Uplaod')->schema([
+                        Toggle::make('valider'),
+                        Select::make('id_Cat')
+                            ->label('Categories')
+                            // ->relationship('categorie', 'Catname')
+                            ->options(Categorie::all()->pluck('Catname', 'id_Cat'))
+                            // ->getSearchResultsUsing(fn (string $search) => \App\Models\Categorie::where('Catname', 'like', "%{$search}%")->pluck('Catname', 'id_Cat'))
+                            ->searchable(),
 
-                    FileUpload::make('pic')
-                        ->rules(['mimes:jpeg,png,jpg,gif,svg'])
-                        ->disk('public')
-                        ->directory('pics')
-                        ->columnSpanFull(),
-                ])->columns(2),
+                        FileUpload::make('pic')
+                            ->rules(['mimes:jpeg,png,jpg,gif,svg'])
+                            ->disk('public')
+                            ->directory('pics')
+                            ->columnSpanFull(),
+                    ])
+                ])->columnSpanFull()->persistTabInQueryString(),
+                // Section::make()->schema([
+                //     TextInput::make('proName')->label('Produckt Name')->required(),
+                //     TextInput::make('price')
+                //         ->numeric()
+                //         ->integer(),
+                //     TextInput::make('oldPrice')->label('Old Price')
+                //         ->numeric()
+                //         ->integer(),
+                //     TextInput::make('stockQuantity')->label('stock Quantity')
+                //         ->numeric(),
+                //     Textarea::make('description')
+                //         ->label('Description')
+                //         ->columnSpanFull()
+                //         ->required(),
+                //     Toggle::make('valider'),
+                //     Select::make('id_Cat')
+                //         ->label('Categories')
+                //         // ->relationship('categorie', 'Catname')
+                //         ->options(Categorie::all()->pluck('Catname', 'id_Cat'))
+                //         // ->getSearchResultsUsing(fn (string $search) => \App\Models\Categorie::where('Catname', 'like', "%{$search}%")->pluck('Catname', 'id_Cat'))
+                //         ->searchable(),
+
+                //     FileUpload::make('pic')
+                //         ->rules(['mimes:jpeg,png,jpg,gif,svg'])
+                //         ->disk('public')
+                //         ->directory('pics')
+                //         ->columnSpanFull(),
+                // ])->columns(2),
 
             ]);
     }
