@@ -70,34 +70,34 @@ class ProductResource extends Resource
                             ->columnSpanFull(),
                     ])
                 ])->columnSpanFull()->persistTabInQueryString(),
-                Section::make()->schema([
-                    TextInput::make('proName')->label('Produckt Name')->required(),
-                    TextInput::make('price')
-                        ->numeric()
-                        ->integer(),
-                    TextInput::make('oldPrice')->label('Old Price')
-                        ->numeric()
-                        ->integer(),
-                    TextInput::make('stockQuantity')->label('stock Quantity')
-                        ->numeric(),
-                    Textarea::make('description')
-                        ->label('Description')
-                        ->columnSpanFull()
-                        ->required(),
-                    Toggle::make('valider'),
-                    Select::make('id_Cat')
-                        ->label('Categories')
-                        // ->relationship('categorie', 'Catname')
-                        ->options(Categorie::all()->pluck('Catname', 'id_Cat'))
-                        // ->getSearchResultsUsing(fn (string $search) => \App\Models\Categorie::where('Catname', 'like', "%{$search}%")->pluck('Catname', 'id_Cat'))
-                        ->searchable(),
+                // Section::make()->schema([
+                //     TextInput::make('proName')->label('Produckt Name')->required(),
+                //     TextInput::make('price')
+                //         ->numeric()
+                //         ->integer(),
+                //     TextInput::make('oldPrice')->label('Old Price')
+                //         ->numeric()
+                //         ->integer(),
+                //     TextInput::make('stockQuantity')->label('stock Quantity')
+                //         ->numeric(),
+                //     Textarea::make('description')
+                //         ->label('Description')
+                //         ->columnSpanFull()
+                //         ->required(),
+                //     Toggle::make('valider'),
+                //     Select::make('id_Cat')
+                //         ->label('Categories')
+                //         // ->relationship('categorie', 'Catname')
+                //         ->options(Categorie::all()->pluck('Catname', 'id_Cat'))
+                //         // ->getSearchResultsUsing(fn (string $search) => \App\Models\Categorie::where('Catname', 'like', "%{$search}%")->pluck('Catname', 'id_Cat'))
+                //         ->searchable(),
 
-                    FileUpload::make('pic')
-                        ->rules(['mimes:jpeg,png,jpg,gif,svg'])
-                        ->disk('public')
-                        ->directory('pics')
-                        ->columnSpanFull(),
-                ])->columns(2),
+                //     FileUpload::make('pic')
+                //         ->rules(['mimes:jpeg,png,jpg,gif,svg'])
+                //         ->disk('public')
+                //         ->directory('pics')
+                //         ->columnSpanFull(),
+                // ])->columns(2),
 
             ]);
     }
