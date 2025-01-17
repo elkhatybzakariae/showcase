@@ -24,6 +24,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -123,6 +124,7 @@ class ProductResource extends Resource
                         return $query->where('valider', true);
                     }
                 ),
+                TernaryFilter::make('valider'),
                 SelectFilter::make('id_Cat')
                     ->label('Category')
                     ->options(Categorie::all()->pluck('Catname', 'id_Cat'))
