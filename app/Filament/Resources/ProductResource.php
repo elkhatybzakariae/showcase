@@ -22,6 +22,8 @@ use Filament\Tables;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
+use Filament\Tables\Filters\Filter;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -116,7 +118,15 @@ class ProductResource extends Resource
                 TextColumn::make('categorie.Catname')->sortable()->searchable(),
             ])
             ->filters([
-                //
+                Filter::make('is Valider')->query(
+                    function (Builder $query): Builder {
+                        return $query->where('valider', true);
+                    }
+                ),
+                SelectFilter::make('id_Cat')
+                    ->label('Category')
+                    ->options(Categorie::all()->pluck('Catname', 'id_Cat'))
+                    ->multiple()
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
