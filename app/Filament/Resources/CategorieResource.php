@@ -25,6 +25,8 @@ class CategorieResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
 
+    // protected static bool $shouldSkipAuthorization = true;
+
     public static function form(Form $form): Form
     {
         return $form
