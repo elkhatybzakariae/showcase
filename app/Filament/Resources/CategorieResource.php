@@ -24,6 +24,10 @@ class CategorieResource extends Resource
     protected static ?string $model = Categorie::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
+    protected static ?string $navigationGroup = 'Store';
+
+    // protected static ?int $navigationSort = 1;
+
 
     // protected static bool $shouldSkipAuthorization = true;
 
