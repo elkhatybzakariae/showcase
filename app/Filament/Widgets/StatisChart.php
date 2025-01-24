@@ -1,0 +1,38 @@
+<?php
+
+namespace App\Filament\Widgets;
+
+use App\Models\Product;
+use Filament\Widgets\ChartWidget;
+use Flowframe\Trend\Trend;
+use Flowframe\Trend\TrendValue;
+
+class StatisChart extends ChartWidget
+{
+    protected static ?string $heading = 'Product';
+
+    protected function getData(): array
+    {
+        $data = Trend::model(Product::class)
+        ->between(
+            start: now()->subDays(20),
+            end: now(),
+        )
+        ->perDay()
+        ->count();
+        return [
+            'datasets' => [
+                [
+                    'label' => 'Blog Product created',
+                    'data' => $data->map(fn (TrendValue $value) => $value->aggregate),
+            ],
+        ],
+        'labels' => $data->map(fn (TrendValue $value) => $value->date),
+        ];
+    }
+
+    protected function getType(): string
+    {
+        return 'line';
+    }
+}
