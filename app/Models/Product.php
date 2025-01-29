@@ -13,7 +13,8 @@ class Product extends Model
     protected $primaryKey = 'id_Pr';
     public $incrementing = false;
     public $timestamps = true;
-    protected $fillable = ['id_Pr','pic','proName','price','oldPrice','description','stockQuantity'
+    protected $fillable = ['id_Pr','pic','proName',
+    'price','oldPrice','description','stockQuantity'
     ,'valider','id_Cat'];
 
     public function categorie() {
