@@ -3,6 +3,8 @@
 namespace App\Filament\Resources\ProductResource\Pages;
 
 use App\Filament\Resources\ProductResource;
+use App\Filament\Widgets\Statis;
+use App\Filament\Widgets\StatisChart;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Resources\Pages\ListRecords\Tab;
@@ -17,6 +19,13 @@ class ListProducts extends ListRecords
     {
         return [
             Actions\CreateAction::make(),
+        ];
+    }
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            // Statis::class,
+            // StatisChart::class
         ];
     }
 
