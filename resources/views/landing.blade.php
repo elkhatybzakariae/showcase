@@ -2,8 +2,8 @@
 <html>
 
 <head>
-  <title>{{ env('APP_NAME') }}</title>
-  <meta charset="utf-8">
+    <title>{{ env('APP_NAME') }}</title>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
@@ -26,6 +26,11 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="{{ asset('storage/js/modernizr.js') }}"></script>
     @livewireStyles
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
@@ -218,7 +223,7 @@
         </div>
     </section>
     {{-- @include('master.services') --}}
-    <livewire:services /> 
+    <livewire:services />
 
     @foreach ($categories as $category)
         <section id="mobile-products" class="product-store position-relative padding-large no-padding-top">
@@ -237,8 +242,8 @@
                                 <div class="swiper-slide">
                                     <div class="product-card position-relative">
                                         <div class="image-holder">
-                                            <img src="{{ asset('storage/'. $product->pic) }}"
-                                                alt="product-item" class="img-fluid">
+                                            <img src="{{ asset('storage/' . $product->pic) }}" alt="product-item"
+                                                class="img-fluid">
                                         </div>
                                         <div class="cart-concern position-absolute">
                                             <div class="cart-button d-flex">
@@ -251,9 +256,9 @@
                                         <div
                                             class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                                             <h3 class="card-title text-uppercase">
-                                                <a href="#">{{$product->proName}}</a>
+                                                <a href="#">{{ $product->proName }}</a>
                                             </h3>
-                                            <span class="item-price text-primary">${{$product->price}}</span>
+                                            <span class="item-price text-primary">${{ $product->price }}</span>
                                         </div>
                                     </div>
                                 </div>
