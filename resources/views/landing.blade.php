@@ -25,7 +25,7 @@
     ================================================== -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="{{ asset('storage/js/modernizr.js') }}"></script>
-
+    @livewireStyles
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
@@ -217,7 +217,9 @@
             </svg>
         </div>
     </section>
-    @include('master.services')
+    {{-- @include('master.services') --}}
+    <livewire:services /> 
+
     @foreach ($categories as $category)
         <section id="mobile-products" class="product-store position-relative padding-large no-padding-top">
             <div class="container">
@@ -638,6 +640,7 @@
 
         document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
     </script>
+    @livewireScripts
 </body>
 
 </html>
