@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ mix('css/app.css') }}" rel="stylesheet"> --}}
 
     <link rel="stylesheet" type="text/css" href="{{ asset('storage/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('storage/style.css') }}">
@@ -24,12 +24,12 @@
     <!-- script
     ================================================== -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <script src="{{ asset('storage/js/modernizr.js') }}"></script>
+    {{-- <script src="{{ asset('storage/js/modernizr.js') }}"></script> --}}
     @livewireStyles
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    {{-- <script src="https://unpkg.com/@tailwindcss/browser@4"></script> --}}
 
 </head>
 
@@ -224,52 +224,9 @@
     </section>
     {{-- @include('master.services') --}}
     <livewire:services />
+    <livewire:category />
 
-    @foreach ($categories as $category)
-        <section id="mobile-products" class="product-store position-relative padding-large no-padding-top">
-            <div class="container">
-                <div class="row">
-                    <div class="display-header d-flex justify-content-between pb-3">
-                        <h2 class="display-7 text-dark text-uppercase">{{ $category->Catname }}</h2>
-                        <div class="btn-right">
-                            <a href="shop.html" class="btn btn-medium btn-normal text-uppercase">Go to Shop</a>
-                        </div>
-                    </div>
-                    <div class="swiper product-swiper">
-                        <div class="swiper-wrapper">
-
-                            @foreach ($category->product as $product)
-                                <div class="swiper-slide">
-                                    <div class="product-card position-relative">
-                                        <div class="image-holder">
-                                            <img src="{{ asset('storage/' . $product->pic) }}" alt="product-item"
-                                                class="img-fluid">
-                                        </div>
-                                        <div class="cart-concern position-absolute">
-                                            <div class="cart-button d-flex">
-                                                <a href="#" class="btn btn-medium btn-black">Add to Cart<svg
-                                                        class="cart-outline">
-                                                        <use xlink:href="#cart-outline"></use>
-                                                    </svg></a>
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="card-detail d-flex justify-content-between align-items-baseline pt-3">
-                                            <h3 class="card-title text-uppercase">
-                                                <a href="#">{{ $product->proName }}</a>
-                                            </h3>
-                                            <span class="item-price text-primary">${{ $product->price }}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-pagination position-absolute text-center"></div>
-        </section>
-    @endforeach
+   
     {{-- <section id="smart-watches" class="product-store padding-large position-relative">
       <div class="container">
         <div class="row">
