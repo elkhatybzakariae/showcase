@@ -1,4 +1,4 @@
-{{-- <div class="swiper-wrapper">
+<div class="swiper-wrapper">
     @foreach ($category->product as $product)
         <div class="swiper-slide">
             <div class="product-card position-relative">
@@ -21,4 +21,4 @@
             </div>
         </div>
     @endforeach
-</div> --}}
+</div>
