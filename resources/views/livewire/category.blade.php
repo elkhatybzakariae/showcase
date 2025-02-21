@@ -1,5 +1,6 @@
 <div>
     @foreach ($categories as $category)
+    @if ($category->product->count() > 0)
         <section id="mobile-products" class="product-store position-relative padding-large no-padding-top">
             <div class="container">
                 <div class="row">
@@ -41,5 +42,6 @@
             </div>
             <div class="swiper-pagination position-absolute text-center"></div>
         </section>
+        @endif
     @endforeach
 </div>

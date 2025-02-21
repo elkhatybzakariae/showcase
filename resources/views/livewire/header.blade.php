@@ -98,6 +98,16 @@
 
                                         <button id="theme-toggle">Toggle Dark Mode</button>
                                     </li>
+                                    <li>
+                                        <!-- partial:index.partial.html -->
+                                        <form>
+                                            <input type="radio" id="on" name="status" value="on" checked>
+                                            <label for="on">On</label>
+                                            <input type="radio" id="off" name="status" value="off">
+                                            <label for="off">Off</label>
+                                        </form>
+                                        <!-- partial -->
+                                    </li>
                                 </ul>
                             </div>
                         </li>
