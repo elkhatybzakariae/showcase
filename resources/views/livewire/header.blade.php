@@ -1,4 +1,4 @@
-{{-- <header id="header" class="site-header header-scrolled position-fixed text-black bg-light">
+<header id="header" class="site-header header-scrolled position-fixed text-black bg-light">
     <nav id="header-nav" class="navbar navbar-expand-lg px-3 mb-3">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
@@ -116,4 +116,4 @@
             </div>
         </div>
     </nav>
-</header> --}}
+</header>
