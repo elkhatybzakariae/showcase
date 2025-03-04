@@ -11,8 +11,6 @@
     <meta name="author" content="">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    {{-- <link href="{{ mix('css/app.css') }}" rel="stylesheet"> --}}
-
     <link rel="stylesheet" type="text/css" href="{{ asset('storage/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('storage/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -21,15 +19,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Lato:wght@300;400;700&display=swap"
         rel="stylesheet">
-    <!-- script
-    ================================================== -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    {{-- <script src="{{ asset('storage/js/modernizr.js') }}"></script> --}}
     @livewireStyles
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-
-    {{-- <script src="https://unpkg.com/@tailwindcss/browser@4"></script> --}}
 
 </head>
 
