@@ -73,7 +73,7 @@
     <livewire:services />
     <livewire:category />
 
-   
+
     {{-- <section id="smart-watches" class="product-store padding-large position-relative">
       <div class="container">
         <div class="row">

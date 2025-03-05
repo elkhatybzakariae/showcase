@@ -1,4 +1,4 @@
-<div>
+{{-- <div>
     @foreach ($categories as $category)
         @if ($category->product->count() > 0)
             <section id="mobile-products" class="product-store position-relative padding-large no-padding-top">
@@ -11,7 +11,6 @@
                             </div>
                         </div>
                         <div class="swiper product-swiper">
-                            {{-- <livewire:product /> --}}
                             <div class="swiper-wrapper">
                                 @foreach ($category->product as $product)
                                     <div class="swiper-slide">
@@ -44,6 +43,41 @@
                     </div>
                 </div>
                 <div class="swiper-pagination position-absolute text-center"></div>
+            </section>
+        @endif
+    @endforeach
+</div> --}}
+<div>
+    @foreach ($categories as $category)
+        @if ($category->product->count() > 0)
+            <section class="py-24">
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <h2 class="font-manrope font-bold text-4xl text-black mb-8 max-lg:text-center">
+                        {{ $category->Catname }} list
+                    </h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        @foreach ($category->product as $product)
+                            <a href="javascript:;"
+                                class="mx-auto sm:mr-0 group cursor-pointer lg:mx-auto bg-white transition-all duration-500">
+                                <div class="">
+                                    <img src="{{ asset('storage/' . $product->pic) }}" alt=""
+                                        class="w-full aspect-square rounded-2xl object-cover">
+                                </div>
+                                <div class="mt-5">
+                                    <div class="flex items-center justify-between">
+                                        <h6
+                                            class="font-semibold text-xl leading-8 text-black transition-all duration-500 group-hover:text-indigo-600">
+                                            {{ $product->proName }}</h6>
+                                        <h6 class="font-semibold text-xl leading-8 text-indigo-600">
+                                            ${{ $product->price }}
+                                        </h6>
+                                    </div>
+                                    {{-- <p class="mt-2 font-normal text-sm leading-6 text-gray-500">Orange & Aloe Vera</p> --}}
+                                </div>
+                            </a>
+                        @endforeach
+                    </div>
+                </div>
             </section>
         @endif
     @endforeach
