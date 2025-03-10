@@ -52,9 +52,19 @@
         @if ($category->product->count() > 0)
             <section class="py-24">
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <h2 class="font-manrope font-bold text-4xl text-black mb-8 max-lg:text-center">
-                        {{ $category->Catname }} list
-                    </h2>
+                    <div class="flex items-center justify-between mb-8 max-lg:flex-col max-lg:text-center">
+                        <h2 class="font-manrope font-bold text-4xl text-black">
+                            {{ $category->Catname }} list
+                        </h2>
+                        {{-- <h4 class="text-black"><a href="{{route('filament.admin.resources.products.index')}}"> show all</a> --}}
+                            <a href="{{ route('filament.admin.resources.products.index', ['category_id' => $category->id]) }}" 
+                                class="btn btn-primary">
+                                Show All Products in {{ $category->name }}
+                             </a>
+                             
+                        </h4>
+                    </div>
+
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                         @foreach ($category->product as $product)
                             <a href="javascript:;"
