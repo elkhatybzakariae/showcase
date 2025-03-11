@@ -170,11 +170,11 @@ class ProductResource extends Resource
             'edit' => Pages\EditProduct::route('/{record}/edit'),
         ];
     }
-    public static function query(EloquentBuilder $query): EloquentBuilder
-{
-    return $query->when(request()->has('category_id'), function ($query) {
-        return $query->where('category_id', request('category_id'));
-    });
-}
+//     public static function query(EloquentBuilder $query): EloquentBuilder
+// {
+//     return $query->when(request()->has('category_id'), function ($query) {
+//         return $query->where('category_id', request('category_id'));
+//     });
+// }
 
 }

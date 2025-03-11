@@ -57,9 +57,9 @@
                             {{ $category->Catname }} list
                         </h2>
                         {{-- <h4 class="text-black"><a href="{{route('filament.admin.resources.products.index')}}"> show all</a> --}}
-                            <a href="{{ route('filament.admin.resources.products.index', ['category_id' => $category->id]) }}" 
+                            <a href="{{ route('cat',$category->id_Cat) }}" 
                                 class="btn btn-primary">
-                                Show All Products in {{ $category->name }}
+                                Show All Products in {{ $category->Catname }}
                              </a>
                              
                         </h4>
