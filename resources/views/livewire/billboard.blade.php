@@ -102,112 +102,18 @@ $el.addEventListener('mousemove', (e) => {
         </template>
     </div>
 </div>
-{{-- <script>
+<script>
+    var lastProducts = {!! $lastProductsJson !!};
+    var cards = @json($cards);
+    console.log(cards);
+
     function swipeCards() {
         return {
-            cards: [{
-                    id: 1,
-                    image: `https://loremflickr.com/300/200/${encodeURIComponent('grape')}`,
-                    title: 'Cocktail',
-                    description: 'Tropical mix of flavors, perfect for parties.',
-                    price: 8.99,
-                    link: 'https://lqrs.com'
-                },
-                {
-                    id: 2,
-                    image: `https://loremflickr.com/300/200/${encodeURIComponent('apple')}`,
-                    title: 'Smoothie',
-                    description: 'Refreshing blend of fruits and yogurt.',
-                    price: 5.49,
-                    link: 'https://lqrs.com'
-                },
-                {
-                    id: 3,
-                    image: `https://loremflickr.com/300/200/${encodeURIComponent('banana')}`,
-                    title: 'Iced Coffee',
-                    description: 'Cold brewed coffee with a hint of vanilla.',
-                    price: 4.99,
-                    link: 'https://lqrs.com'
-                },
-                {
-                    id: 4,
-                    image: `https://loremflickr.com/300/200/${encodeURIComponent('berry')}`,
-                    title: 'Mojito',
-                    description: 'Classic Cuban cocktail with mint and lime.',
-                    price: 7.99,
-                    link: 'https://lqrs.com'
-                },
-                {
-                    id: 5,
-                    image: `https://loremflickr.com/300/200/${encodeURIComponent('orange')}`,
-                    title: 'Matcha Latte',
-                    description: 'Creamy green tea latte, rich in antioxidants.',
-                    price: 6.49,
-                    link: 'https://lqrs.com'
-                },
-                {
-                    id: 6,
-                    image: `https://loremflickr.com/300/200/${encodeURIComponent('peach')}`,
-                    title: 'Fruit Punch',
-                    description: 'Sweet and tangy punch, bursting with fruity flavors.',
-                    price: 3.99,
-                    link: 'https://lqrs.com'
-                },
-                {
-                    id: 7,
-                    image: `https://loremflickr.com/300/200/${encodeURIComponent('cherry')}`,
-                    title: 'Bubble Tea',
-                    description: 'Chewy tapioca pearls in a sweet milk tea base.',
-                    price: 4.99,
-                    link: 'https://lqrs.com'
-                }
-            ],
+            cards: cards,
             addToCart(product) {
                 // Implement your add to cart logic here
                 console.log('Adding to cart:', product);
             }
-        };
-    }
-</script> --}}
-<script>
-    function swipeCards() {
-        return {
-            cards: [
-                @if($lastProducts)
-                {
-                    id: {{ $lastProducts->id }},
-                    image: `https://loremflickr.com/300/200/${encodeURIComponent('{{ $lastProduct->name }}')}`,
-                    title: `{{ $lastProduct->proName }}`,
-                    description: `{{ $lastProduct->description ?? 'No description available' }}`,
-                    price: {{ $lastProduct->price ?? 0.00 }},
-                    link: '#'
-                },
-                @endif
-                {
-                    id: 1,
-                    image: `https://loremflickr.com/300/200/${encodeURIComponent('grape')}`,
-                    title: 'Cocktail',
-                    description: 'Tropical mix of flavors, perfect for parties.',
-                    price: 8.99,
-                    link: 'https://lqrs.com'
-                },
-                {
-                    id: 2,
-                    image: `https://loremflickr.com/300/200/${encodeURIComponent('apple')}`,
-                    title: 'Smoothie',
-                    description: 'Refreshing blend of fruits and yogurt.',
-                    price: 5.49,
-                    link: 'https://lqrs.com'
-                },
-                {
-                    id: 3,
-                    image: `https://loremflickr.com/300/200/${encodeURIComponent('banana')}`,
-                    title: 'Iced Coffee',
-                    description: 'Cold brewed coffee with a hint of vanilla.',
-                    price: 4.99,
-                    link: 'https://lqrs.com'
-                }
-            ]
         };
     }
 </script>
