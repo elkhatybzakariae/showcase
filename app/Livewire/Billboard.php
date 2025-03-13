@@ -15,6 +15,10 @@ class Billboard extends Component
     {
         // Fetch all products
         $this->lastProducts = Product::all();
+        // $this->lastProducts = Product::whereMonth('created_at', Carbon::now()->month)
+        // ->whereYear('created_at', Carbon::now()->year)
+        // ->latest()
+        // ->first();
 
         // Initialize an empty array for cards
         $this->cards = [];
