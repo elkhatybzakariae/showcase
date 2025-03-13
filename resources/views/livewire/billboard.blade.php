@@ -26,7 +26,7 @@
         <template x-for="card in cards" :key="card.id">
             <div class="flex-none w-64 snap-center mt-5">
                 <div class="bg-white border-1 border border-gray-200 rounded-lg overflow-hidden mb-4">
-                    <img :src="card.image" alt="" class="w-full h-40 object-cover">
+                    <img :src="card.image" alt="" class="w-full mt-4 h-100 w-100 h-40 object-cover">
                     <div class="p-4">
                         <h3 class="text-lg leading-6 font-bold text-gray-900" x-text="card.title"></h3>
                         <p class="text-gray-600 mt-2 text-sm" x-text="card.description"></p>
